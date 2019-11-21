@@ -1,0 +1,1 @@
+# osp-stockpile-ci
