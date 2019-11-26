@@ -1,5 +1,4 @@
 #!/bin/bash
-
 HOST=$1
 TOPOLOGY_NODES=undercloud:1,controller:1,compute:1
 BASEDIR="/home/stockpile/ospci"
@@ -38,6 +37,7 @@ function cleanup_host() {
 
 }
 
+# installs the required packages and generates a ssh key
 function prep_env() {
   for PACKAGE in ${PACKAGES[@]}
   do
@@ -76,6 +76,7 @@ function create_vms() {
 }
 
 
+# installs undercloud
 function undercloud_install() {
 
   source $VENVDIR/bin/activate
@@ -90,6 +91,7 @@ function undercloud_install() {
 
 }
 
+# deploys overcloud
 function overcloud_deploy() {
   source $VENVDIR/bin/activate                                                   
   cd $BASEDIR/infrared 
@@ -103,6 +105,7 @@ function overcloud_deploy() {
 
 }
 
+#installs browbeat and generates host file
 function browbeat_install() {
   yum install -y ansible
   source $VENVDIR/bin/activate
