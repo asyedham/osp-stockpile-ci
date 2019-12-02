@@ -47,7 +47,7 @@ function prep_env() {
   if [ -f "$SSHKEY" ]; then
     echo "ssh key exist"
   else
-    ssh-keygen -q -N "" -f ${SSH_DIR}
+    ssh-keygen -q -N "" -f ${SSH_DIR}/id_rsa
     cat "$SSH_DIR/id_rsa.pub" >> "$SSH_DIR/authorized_keys"
   fi 
 }
