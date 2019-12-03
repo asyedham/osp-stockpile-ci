@@ -5,7 +5,7 @@ CHANGED=$(git diff remotes/origin/master roles/openstack_* roles/cpu* roles/kern
 if [ -n "$CHANGED" ]; then
    echo "setting up infrared setup"
    cd /root
-   sh ./stockpile-ci.sh f20-h01-000-r620.rdu2.scalelab.redhat.com full
+   sh ./stockpile-ci.sh <hostname> full
 else
    figlet no_openstack_changes
    git diff remotes/origin/master --name-only ;
