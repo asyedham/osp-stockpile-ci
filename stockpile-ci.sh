@@ -112,10 +112,11 @@ function browbeat_install() {
   cd $BASEDIR/infrared
 ssh -T -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa stack@undercloud-0 <<'EOSSH'
   source ~/stackrc
-  git clone https://github.com/cloud-bulldozer/browbeat.git
-  pushd ~/browbeat/ansible
-  grep "8.8.8.8" ~/browbeat/ansible/install/group_vars/all.yml | sed 's/8.8.8.8/10.11.5.19/'
-  ./generate_tripleo_hostfile.sh -l
+  ##Need to work on this
+  #git clone https://github.com/cloud-bulldozer/browbeat.git
+  #pushd ~/browbeat/ansible
+  #grep "8.8.8.8" ~/browbeat/ansible/install/group_vars/all.yml | sed 's/8.8.8.8/10.11.5.19/'
+  #./generate_tripleo_hostfile.sh -l
   popd
 EOSSH
 
